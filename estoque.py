@@ -29,7 +29,18 @@ def removerProduto():
         print(f"{nome}: {quantidade}")
 
 
+def atualizarQuantidade():
+    produto = input("Qual o produto que deseja para aumentar a quantidade? ")
+    quantidadeProduto = int(input("Qual a quantidade que deseja adicionar? "))
+
+    estoque[produto] = quantidadeProduto + estoque[produto]
+    
+    for nome, quantidade in estoque.items():
+        print(f"{nome}: {quantidade}")
 
 
+
+
+atualizarQuantidade()
 adicionarProduto()
 removerProduto()
