@@ -21,7 +21,15 @@ def adicionarProduto():
 
 
 
+def removerProduto():
+    nomeProduto = input("Qual produto voce deseja remover? ")
+
+    estoque.pop(nomeProduto)
+    for nome, quantidade in estoque.items():
+        print(f"{nome}: {quantidade}")
+
 
 
 
 adicionarProduto()
+removerProduto()
