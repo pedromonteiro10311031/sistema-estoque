@@ -39,8 +39,33 @@ def atualizarQuantidade():
         print(f"{nome}: {quantidade}")
 
 
+def exibirMenu():
+    print("1 - Ver estoque\n2 - Adicionar produto\n3 - Remover produto\n4 - Atualizar quantidade\n5 - Sair")
 
 
-atualizarQuantidade()
-adicionarProduto()
-removerProduto()
+  
+
+while True:
+    exibirMenu()
+    opcao = int(input("Digite o numero desejado: "))
+    
+    if opcao == 1:
+        for nome, quantidade in estoque.items():
+         print(f"{nome}: {quantidade}")
+
+    elif opcao == 2:
+        adicionarProduto()
+    elif opcao == 3:
+        removerProduto()
+    elif opcao == 4:
+        atualizarQuantidade()
+    elif opcao == 5:
+        print("Saindo...")
+        break
+
+
+
+
+
+
+exibirMenu()
