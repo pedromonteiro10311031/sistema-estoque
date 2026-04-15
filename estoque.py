@@ -50,8 +50,13 @@ while True:
     opcao = int(input("Digite o numero desejado: "))
     
     if opcao == 1:
-        for nome, quantidade in estoque.items():
-         print(f"{nome}: {quantidade}")
+         for nome, quantidade in estoque.items():
+            if quantidade <= 5:
+               print(f"{nome}: {quantidade} ⚠️  Estoque baixo!")
+            else:
+             print(f"{nome}: {quantidade}")
+     
+           
 
     elif opcao == 2:
         adicionarProduto()
