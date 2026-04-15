@@ -47,7 +47,10 @@ def removerProduto():
 
 def atualizarQuantidade():
     produto = input("Qual o produto que deseja para aumentar a quantidade? ")
-    quantidadeProduto = int(input("Qual a quantidade que deseja adicionar? "))
+    if produto in estoque:
+        quantidadeProduto = int(input("Qual a quantidade que deseja adicionar? "))
+    else:
+        return print("Produto não encontrado.")
 
     estoque[produto] = quantidadeProduto + estoque[produto]
     
