@@ -1,10 +1,22 @@
-estoque = {
-    "banana": 10,
-    "maçã": 5,
-    "laranja": 8,
-    "cenoura": 4,
+import json
+
+def salvarEstoque():
+    with open("estoque.json", "w") as arquivo:
+        json.dump(estoque, arquivo)
+
+def carregarEstoque():
+    try:
+        with open("estoque.json", "r") as arquivo:
+            return json.load(arquivo)
+    except FileNotFoundError:
+        return {
+            "banana": 10,
+            "maçã": 5,
+            "laranja": 8,
+            "cenoura": 4
+        }
     
-}
+estoque = carregarEstoque()
 
 for nome, quantidade in estoque.items():
     print(f"{nome}: {quantidade}")
@@ -19,6 +31,8 @@ def adicionarProduto():
     for nome, quantidade in estoque.items():
         print(f"{nome}: {quantidade}")
 
+    salvarEstoque()
+
 
 
 def removerProduto():
@@ -27,6 +41,8 @@ def removerProduto():
     estoque.pop(nomeProduto)
     for nome, quantidade in estoque.items():
         print(f"{nome}: {quantidade}")
+
+    salvarEstoque()
 
 
 def atualizarQuantidade():
@@ -37,6 +53,8 @@ def atualizarQuantidade():
     
     for nome, quantidade in estoque.items():
         print(f"{nome}: {quantidade}")
+    
+    salvarEstoque()
 
 
 def exibirMenu():
