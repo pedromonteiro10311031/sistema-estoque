@@ -52,7 +52,9 @@ def atualizarQuantidade():
     else:
         return print("Produto não encontrado.")
 
-    estoque[produto] = quantidadeProduto + estoque[produto]
+    estoque[produto] = estoque[produto] + quantidadeProduto
+
+    
     
     for nome, quantidade in estoque.items():
         print(f"{nome}: {quantidade}")
